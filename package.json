@@ -7,8 +7,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^5.5.5",
+    "leaflet": "^1.7.1",
+    "prop-types": "^15.8.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-helmet-async": "^1.2.2",
+    "react-icons": "^4.3.1",
+    "react-leaflet": "^3.2.2",
+    "react-query": "^3.34.6",
+    "react-router-dom": "^6.2.1",
+    "react-scrollbar-size": "^4.0.0",
+    "styled-components": "^5.3.3",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
