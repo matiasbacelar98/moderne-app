@@ -1,15 +1,15 @@
 import { css } from 'styled-components';
 
-import CrimsonTextRegular from '../../assets/fonts/CrimsonText-Regular.ttf';
-import CrimsonTextSemibold from '../../assets/fonts/CrimsonText-SemiBold.ttf';
+import BarlowRegular from '../../assets/fonts/Barlow-Regular.ttf';
+import BarlowSemibold from '../../assets/fonts/Barlow-SemiBold.ttf';
 
-export const crimsonTextFonts = css`
+export const barlowFonts = css`
   @font-face {
     font-family: 'Crimson Text';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: local('Crimson Text Regular'), url(${CrimsonTextRegular});
+    src: local('Barlow Regular'), url(${BarlowRegular});
   }
 
   @font-face {
@@ -17,6 +17,6 @@ export const crimsonTextFonts = css`
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: local('Crimson Text SemiBold'), url(${CrimsonTextSemibold});
+    src: local('Barlow SemiBold'), url(${BarlowSemibold});
   }
 `;

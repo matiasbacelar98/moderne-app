@@ -1,10 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-import { reset, variables, crimsonTextFonts, utilityClasses, thirdPartyStyles } from './helpers';
+import { reset, variables, barlowFonts, utilityClasses, thirdPartyStyles } from './helpers';
 
 const GlobalStyles = createGlobalStyle`
 ${reset}
 ${variables};
-${crimsonTextFonts}; 
+${barlowFonts}; 
 ${utilityClasses}
 ${thirdPartyStyles}
 `;

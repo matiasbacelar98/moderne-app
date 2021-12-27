@@ -4,7 +4,7 @@ import { fluidValues } from './functions';
 export const variables = css`
   :root {
     // Fonts
-    --font: 'Crimson Text', serif;
+    --font: 'Barlow', sans-serif;
     --fs-1: ${fluidValues(280, 1400, 41, 83)};
     --fs-2: ${fluidValues(280, 1400, 32, 48)};
     --fs-3: ${fluidValues(280, 1400, 29, 40)};
