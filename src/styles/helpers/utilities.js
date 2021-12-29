@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { respondTo } from './media';
+import { respondTo, breakpoints } from './media';
 
 export const utilityClasses = css`
   //--------- Spacing ---------//
@@ -21,6 +21,12 @@ export const utilityClasses = css`
 
   .footer-spacing-bottom {
     margin-bottom: 3.5rem;
+  }
+
+  .rm-spacing-xl > * + * {
+    @media (min-width: ${breakpoints.xl}) {
+      margin: 0;
+    }
   }
 
   //--------- Typography ---------//
