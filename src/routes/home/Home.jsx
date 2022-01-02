@@ -1,19 +1,13 @@
-import Qualities from '../../components/qualities/Qualities';
-import { qualityOne, qualityTwo, qualityThree } from '../../utils/qualitiesData';
-
-import Footer from '../../components/footer/Footer';
+import Navigation from '../../components/navigation/Navigation';
+import { propertiesBox, aboutBox } from '../../utils/navigationData';
 
 const Home = () => {
   return (
     <div
-      className='wrapper flow-spacing header-spacing-top footer-spacing-bottom'
-      style={{ height: '1000vh', paddingTop: '80rem' }}
+      className='flow-spacing header-spacing-top footer-spacing-bottom'
+      style={{ height: '120vh' }}
     >
-      <Qualities values={qualityOne} />
-      <Qualities values={qualityTwo} reverse />
-      <Qualities values={qualityThree} />
-
-      <Footer spacing='footer-spacing-top footer-spacing-bottom' />
+      <Navigation boxOneValues={propertiesBox} boxTwoValues={aboutBox} />
     </div>
   );
 };

@@ -48,6 +48,13 @@ const StyledMobileLink = styled.a`
   }
 `;
 
+const StyledBoxText = styled.span`
+  font-size: var(--fs-text-large);
+  color: var(--clr-light);
+  letter-spacing: 0.8px;
+  display: block;
+`;
+
 export {
   StyledH1,
   StyledH2,
@@ -56,4 +63,5 @@ export {
   StyledInfo,
   StyledDesktopLink,
   StyledMobileLink,
+  StyledBoxText,
 };
