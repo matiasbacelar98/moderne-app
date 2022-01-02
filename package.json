@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "framer-motion": "^5.5.5",
+    "framer-motion-hooks": "^1.0.9",
     "leaflet": "^1.7.1",
     "prop-types": "^15.8.0",
     "react": "^17.0.2",
@@ -20,6 +21,7 @@
     "react-router-dom": "^6.2.1",
     "react-scrollbar-size": "^4.0.0",
     "styled-components": "^5.3.3",
+    "use-debounce": "^7.0.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
