@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAnimation, motion } from 'framer-motion';
 import { StyledButton, StyledArrowWrapper, StyledArrowIcon } from './styles';
 
-const Button = ({ white, path }) => {
+const Button = ({ white, path, text }) => {
   const navigate = useNavigate();
   const arrowControls = useAnimation();
   const arrowTwoControls = useAnimation();
@@ -58,7 +58,7 @@ const Button = ({ white, path }) => {
         </StyledArrowIcon>
       </StyledArrowWrapper>
 
-      <span className='text-semibold content'>Descubrir mas</span>
+      <span className='text-semibold content'>{text}</span>
     </StyledButton>
   );
 };
@@ -67,6 +67,7 @@ const Button = ({ white, path }) => {
 Button.propTypes = {
   white: PropTypes.bool,
   path: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 Button.defaultProps = {

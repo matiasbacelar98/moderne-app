@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "framer-motion": "^5.5.5",
-    "framer-motion-hooks": "^1.0.9",
+    "framer-motion-hooks": "^1.0.10",
     "leaflet": "^1.7.1",
     "prop-types": "^15.8.0",
     "react": "^17.0.2",
