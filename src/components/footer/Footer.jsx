@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
 import Logo from '../logo/Logo';
 import { StyledH3 } from '../../styles/reusable/typography';
-import { StyledGrid, StyledFlexWrapper, StyledContent, StyledLink } from './styles';
+import { StyledGrid, StyledFlexWrapper, StyledContent, StyledButton } from './styles';
 
 const Footer = ({ spacing }) => {
+  const toTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className={`wrapper ${spacing}`}>
       <StyledGrid className='flow-spacing-content rm-spacing-xl'>
@@ -30,7 +34,7 @@ const Footer = ({ spacing }) => {
 
         <StyledFlexWrapper gridArea='copyright'>
           <p>&copy; 2021 Agencia Moderne - Todos Los Derechos Reservados</p>
-          <StyledLink href='#header'>Volver arriba</StyledLink>
+          <StyledButton onClick={toTop}>Volver arriba</StyledButton>
         </StyledFlexWrapper>
       </StyledGrid>
     </footer>

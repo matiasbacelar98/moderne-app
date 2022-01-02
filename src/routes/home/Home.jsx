@@ -1,6 +1,8 @@
 import Qualities from '../../components/qualities/Qualities';
 import { qualityOne, qualityTwo, qualityThree } from '../../utils/qualitiesData';
 
+import Footer from '../../components/footer/Footer';
+
 const Home = () => {
   return (
     <div
@@ -10,6 +12,8 @@ const Home = () => {
       <Qualities values={qualityOne} />
       <Qualities values={qualityTwo} reverse />
       <Qualities values={qualityThree} />
+
+      <Footer spacing='footer-spacing-top footer-spacing-bottom' />
     </div>
   );
 };

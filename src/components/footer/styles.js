@@ -36,14 +36,20 @@ const StyledFlexWrapper = styled.div`
   `}
 `;
 
-const StyledLink = styled.a`
+const StyledButton = styled.button`
   display: none;
+  border: 0;
+  background-color: transparent;
 
   ${respondTo.md`
     position: relative;
     display: inline-block;
     font-size: var(--fs-text-large);
     color: var(--clr-dark);
+
+    &:hover {
+      cursor: pointer;
+    }
 
     &::after {
       content: '';
@@ -65,4 +71,4 @@ const StyledLink = styled.a`
   `}
 `;
 
-export { StyledGrid, StyledFlexWrapper, StyledContent, StyledLink };
+export { StyledGrid, StyledFlexWrapper, StyledContent, StyledButton };
