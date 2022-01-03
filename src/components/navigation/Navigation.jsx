@@ -4,7 +4,12 @@ import { StyledH2, StyledBoxText } from '../../styles/reusable/typography';
 
 const Navigation = ({ boxOneValues, boxTwoValues }) => {
   const { title, text, imgSrc, pathTo } = boxOneValues;
-  const { title: titleTwo, text: textTwo, imgSrc: imgSrcTwo, pathTo: secondPathTwo } = boxTwoValues;
+  const {
+    title: titleBoxTwo,
+    text: textBoxTwo,
+    imgSrc: imgSrcBoxTwo,
+    pathTo: pathBoxTwo,
+  } = boxTwoValues;
 
   return (
     <StyledWrapper>
@@ -16,11 +21,11 @@ const Navigation = ({ boxOneValues, boxTwoValues }) => {
         </StyledImgWrapper>
       </StyledBox>
 
-      <StyledBox to={secondPathTwo}>
-        <StyledBoxText>{textTwo}</StyledBoxText>
-        <StyledH2 light>{titleTwo}</StyledH2>
+      <StyledBox to={pathBoxTwo}>
+        <StyledBoxText>{textBoxTwo}</StyledBoxText>
+        <StyledH2 light>{titleBoxTwo}</StyledH2>
         <StyledImgWrapper className='img'>
-          <img src={imgSrcTwo} alt={titleTwo} />
+          <img src={imgSrcBoxTwo} alt={titleBoxTwo} />
         </StyledImgWrapper>
       </StyledBox>
     </StyledWrapper>

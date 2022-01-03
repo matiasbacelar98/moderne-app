@@ -14,14 +14,6 @@ const StyledBox = styled(Link)`
   place-items: center;
   position: relative;
 
-  &:hover .img::after {
-    background-color: hsla(var(--clr-dark-value), 0.2);
-  }
-
-  &:hover .img img {
-    transform: scale(1.1);
-  }
-
   h2,
   span {
     position: absolute;
@@ -37,6 +29,15 @@ const StyledBox = styled(Link)`
         left: 2.5rem;
    `}
   }
+
+  // Animation
+  &:hover .img::after {
+    background-color: hsla(var(--clr-dark-value), 0.3);
+  }
+
+  &:hover .img img {
+    transform: scale(1.1);
+  }
 `;
 
 const StyledImgWrapper = styled.div`
@@ -45,6 +46,7 @@ const StyledImgWrapper = styled.div`
   width: 100%;
   overflow: hidden;
 
+  // Overlay
   &::after {
     content: '';
     position: absolute;
