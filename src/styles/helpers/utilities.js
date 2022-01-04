@@ -34,6 +34,10 @@ export const utilityClasses = css`
     color: var(--clr-light);
   }
 
+  .text-dark {
+    color: var(--clr-dark);
+  }
+
   .text-semibold {
     font-weight: 600;
   }
@@ -44,6 +48,14 @@ export const utilityClasses = css`
 
   .active-desktop-link {
     color: var(--clr-blue);
+  }
+
+  .header-link {
+    font-size: var(--fs-text-large);
+  }
+
+  .underline {
+    text-decoration: underline;
   }
 
   //--------- Layout ---------//
@@ -61,5 +73,19 @@ export const utilityClasses = css`
   .remove-scroll {
     overflow-y: hidden;
     padding-right: ${props => props.scrollbarWidth}px;
+  }
+
+  .boxShadow {
+    box-shadow: 0px 10px 10px -15px var(--clr-dark);
+  }
+
+  .moveElementForward-10 {
+    position: relative;
+    z-index: 10;
+  }
+
+  .moveElementForward-20 {
+    position: relative;
+    z-index: 20;
   }
 `;

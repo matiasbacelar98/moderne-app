@@ -9,7 +9,7 @@ const Footer = ({ spacing }) => {
   };
 
   return (
-    <footer className={`wrapper ${spacing}`}>
+    <footer id='contact' className={`wrapper ${spacing}`}>
       <StyledGrid className='flow-spacing-content rm-spacing-xl'>
         <StyledContent gridArea='title'>
           <Logo type='dark' />

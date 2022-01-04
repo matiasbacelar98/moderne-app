@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { fluidValues } from '../../styles/helpers';
 import LogoLight from '../../assets/images/logo-light.svg';
@@ -16,15 +17,16 @@ const Logo = ({ type }) => {
   }
 
   return (
-    <StyledLogo>
+    <StyledLogo to='/'>
       <img src={logoSrc} alt='logo' />
     </StyledLogo>
   );
 };
 
 // Styles
-const StyledLogo = styled.div`
+const StyledLogo = styled(Link)`
   width: ${fluidValues(280, 1400, 112, 160)};
+  display: inline-block;
 `;
 
 // Proptypes
