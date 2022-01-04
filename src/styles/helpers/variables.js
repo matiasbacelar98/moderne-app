@@ -17,7 +17,8 @@ export const variables = css`
     --spacing-1: ${fluidValues(280, 1400, 80, 128)};
     // Colors
     --clr-light: hsl(0, 0%, 100%);
-    --clr-dark: hsla(0, 0%, 0%);
+    --clr-dark: hsl(0, 0%, 0%);
     --clr-blue: hsl(219, 65%, 44%);
+    --clr-dark-value: 0, 0%, 0%;
   }
 `;

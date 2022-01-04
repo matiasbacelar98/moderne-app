@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { respondTo } from './media';
+import { respondTo, breakpoints } from './media';
 
 export const utilityClasses = css`
   //--------- Spacing ---------//
@@ -23,9 +23,19 @@ export const utilityClasses = css`
     margin-bottom: 3.5rem;
   }
 
+  .rm-spacing-xl > * + * {
+    @media (min-width: ${breakpoints.xl}) {
+      margin: 0;
+    }
+  }
+
   //--------- Typography ---------//
   .text-white {
     color: var(--clr-light);
+  }
+
+  .text-dark {
+    color: var(--clr-dark);
   }
 
   .text-semibold {
@@ -38,6 +48,14 @@ export const utilityClasses = css`
 
   .active-desktop-link {
     color: var(--clr-blue);
+  }
+
+  .header-link {
+    font-size: var(--fs-text-large);
+  }
+
+  .underline {
+    text-decoration: underline;
   }
 
   //--------- Layout ---------//
@@ -55,5 +73,19 @@ export const utilityClasses = css`
   .remove-scroll {
     overflow-y: hidden;
     padding-right: ${props => props.scrollbarWidth}px;
+  }
+
+  .boxShadow {
+    box-shadow: 0px 10px 10px -15px var(--clr-dark);
+  }
+
+  .moveElementForward-10 {
+    position: relative;
+    z-index: 10;
+  }
+
+  .moveElementForward-20 {
+    position: relative;
+    z-index: 20;
   }
 `;
