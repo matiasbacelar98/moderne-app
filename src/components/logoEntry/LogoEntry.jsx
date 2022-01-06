@@ -4,7 +4,7 @@ import { respondTo } from '../../styles/helpers';
 import { useEntranceContext } from '../../context/entranceContext';
 
 const LogoEntry = () => {
-  const { setUnmountEntrance } = useEntranceContext();
+  const { setIsEntranceActive } = useEntranceContext();
 
   const pathAnimation = {
     fromPath: () => ({
@@ -43,7 +43,7 @@ const LogoEntry = () => {
       <motion.path
         initial={pathAnimation.fromPath}
         animate={pathAnimation.toPath}
-        onAnimationComplete={() => setUnmountEntrance(true)}
+        onAnimationComplete={() => setIsEntranceActive(false)}
         fill='none'
         stroke='#f1f1f1'
         stroke-width='1'

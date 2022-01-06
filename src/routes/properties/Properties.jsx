@@ -1,5 +1,5 @@
 const Properties = () => {
-  return <div>properties route...</div>;
+  return <div>Propiedades</div>;
 };
 
 export default Properties;

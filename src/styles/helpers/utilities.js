@@ -93,9 +93,4 @@ export const utilityClasses = css`
     position: relative;
     z-index: 50;
   }
-
-  .moveElementForward-100 {
-    position: relative;
-    z-index: 50;
-  }
 `;

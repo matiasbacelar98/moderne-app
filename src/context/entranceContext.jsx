@@ -11,13 +11,10 @@ export const useEntranceContext = () => useContext(EntranceContext);
 
 // Provider
 const EntranceProvider = props => {
-  const [isFirstRender, setIsFirstRender] = useState(true);
-  const [unmountEntrance, setUnmountEntrance] = useState(false);
+  const [isEntranceActive, setIsEntranceActive] = useState(true);
 
   return (
-    <EntranceContext.Provider
-      value={{ isFirstRender, setIsFirstRender, unmountEntrance, setUnmountEntrance }}
-    >
+    <EntranceContext.Provider value={{ isEntranceActive, setIsEntranceActive }}>
       {props.children}
     </EntranceContext.Provider>
   );

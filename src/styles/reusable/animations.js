@@ -1,16 +1,22 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-const StyledFixedWrapper = styled.div`
+const StyledFixedWrapper = styled(motion.div)`
   position: fixed;
   top: 0;
-  width: 100%;
+  width: ${props => (!props.widthValue ? '100%' : props.widthValue)};
   height: 100vh;
-  display: grid;
-  place-items: center;
+  ${props =>
+    props.center
+      ? css`
+          display: grid;
+          place-items: center;
+        `
+      : null}
+  z-index: 50;
 `;
 
-const StyledBlocksWrapper = styled(motion.div)`
+const StyledBlockWrapper = styled(motion.div)`
   position: absolute;
   top: 0;
   width: 100%;
@@ -20,10 +26,17 @@ const StyledBlocksWrapper = styled(motion.div)`
 const StyledBlock = styled(motion.div)`
   position: absolute;
   top: ${props => `${props.value}%`};
-  right: 0;
   width: 100%;
   height: calc(100% / 3);
   background-color: var(--clr-dark);
+  ${props =>
+    props.right
+      ? css`
+          right: 0;
+        `
+      : css`
+          left: 0;
+        `}
 `;
 
-export { StyledFixedWrapper, StyledBlocksWrapper, StyledBlock };
+export { StyledFixedWrapper, StyledBlockWrapper, StyledBlock };
