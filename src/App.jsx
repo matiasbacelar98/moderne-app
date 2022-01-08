@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import useScrollbarSize from 'react-scrollbar-size';
 import GlobalStyles from './styles/globalStyles';
 import Home from './routes/home/Home';
 import About from './routes/about/About';
@@ -8,7 +10,17 @@ import SinglePropertie from './routes/singlePropertie/SinglePropertie';
 import NotFound from './routes/404/NotFound';
 
 function App() {
+  // Get scrollbarWidth of current browser
+  const { width } = useScrollbarSize();
   const location = useLocation();
+
+  // set css variable with browser scrollbar width & calculate space
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--scrollbar-width',
+      `calc(${width}px - (100vw - 100%))`
+    );
+  }, [width]);
 
   return (
     <>

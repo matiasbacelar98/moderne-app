@@ -27,27 +27,6 @@ const StyledError = styled.div`
   font-weight: 400;
 `;
 
-const StyledDesktopLink = styled.a`
-  font-size: var(--fs-2);
-  font-weight: 400;
-  transition: color 0.2s ease;
-
-  &:hover {
-    cursor: pointer;
-    color: var(--clr-blue);
-  }
-`;
-
-const StyledMobileLink = styled.a`
-  font-size: 1.8125rem; // 29px
-  font-weight: 400;
-  color: var(--clr-light);
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 const StyledBoxText = styled.span`
   font-size: var(--fs-text-large);
   color: var(--clr-light);
@@ -55,13 +34,4 @@ const StyledBoxText = styled.span`
   display: block;
 `;
 
-export {
-  StyledH1,
-  StyledH2,
-  StyledH3,
-  StyledError,
-  StyledInfo,
-  StyledDesktopLink,
-  StyledMobileLink,
-  StyledBoxText,
-};
+export { StyledH1, StyledH2, StyledH3, StyledError, StyledInfo, StyledBoxText };

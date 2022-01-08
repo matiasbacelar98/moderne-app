@@ -10,12 +10,15 @@ const StyledHeader = styled(motion.header)`
   left: 0;
   z-index: 10;
   width: 100%;
-  padding: 1.5rem 0 0.5rem 0;
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: var(--scrollbar-width);
   background-color: ${props => (props.bgTransparent ? 'transparent' : 'var(--clr-light)')};
   transition: box-shadow 0.3s ease-out;
 
   ${respondTo.lg`
-      padding: 1.8rem 0;
+      padding-top: 1.8rem;
+      padding-bottom: 1.8rem;
   `}
 `;
 
@@ -23,6 +26,26 @@ const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .hamburguer {
+    z-index: 20;
+  }
+
+  .properties-link {
+    display: none;
+    font-size: var(--fs-text-large);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .facebook-icon,
+  .mail-icon,
+  .pathname,
+  .contact-link {
+    display: none;
+  }
 
   ${respondTo.lg`
       display: grid;
@@ -32,7 +55,7 @@ const StyledWrapper = styled.div`
 
       .logo {
         grid-area: logo;
-        margin: 0 1rem 0 3.75rem; // 60px
+        margin: 0 1rem 0 3.75rem; //  3.75rem = 60px
       }
 
       .hamburguer {
@@ -40,50 +63,36 @@ const StyledWrapper = styled.div`
       }
 
       .pathname {
+        display: flex;
+        align-items: center;
         grid-area: pathname;
+
+        p {margin-left : 1rem;}
       }
 
       .facebook-icon {
+        display: inline-block;
         grid-area: facebook;
         margin-right: 2.5rem;
       }
 
       .mail-icon {
+        display: inline-block;
         grid-area: mail;
         margin-right: 2.5rem;
       }
 
       .properties-link {
+        display: inline-block;
         grid-area: properties;
         margin-right: 2.5rem;
       }
       
       .contact-link {
+        display: inline-block;
         grid-area: contact;
       }
   `}
-
-  .pathname {
-    display: none;
-
-    ${respondTo.lg`
-        display: flex;
-        align-items: center;
-
-        p {margin-left : 1rem;}
-    `}
-  }
-
-  .facebook-icon,
-  .mail-icon,
-  .properties-link,
-  .contact-link {
-    display: none;
-
-    ${respondTo.lg`
-      display: inline-block;
-    `}
-  }
 `;
 
 const StyledFacebookIcon = styled(FaFacebookF)`

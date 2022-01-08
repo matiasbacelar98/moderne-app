@@ -21,8 +21,8 @@ const StyledIconWrapper = styled.div`
     stroke: ${props => (props.isLight ? 'var(--clr-light)' : 'var(--clr-dark)')};
     stroke-width: 3;
     stroke-linecap: round;
-    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: stroke-dasharray 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 0.9s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.8s ease;
   }
   .line1 {
     stroke-dasharray: 60 207;

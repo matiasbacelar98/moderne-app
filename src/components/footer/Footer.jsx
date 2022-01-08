@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import Logo from '../logo/Logo';
 import { StyledH3 } from '../../styles/reusable/typography';
-import { StyledGrid, StyledFlexWrapper, StyledContent, StyledButton } from './styles';
+import { StyledGrid, StyledFlexWrapper, StyledContent } from './styles';
+import { StyledScrollButton } from '../../styles/reusable/button';
 
 const Footer = ({ spacing }) => {
   const toTop = () => {
@@ -9,7 +10,7 @@ const Footer = ({ spacing }) => {
   };
 
   return (
-    <footer id='contact' className={`wrapper ${spacing}`}>
+    <footer className={`wrapper ${spacing}`}>
       <StyledGrid className='flow-spacing-content rm-spacing-xl'>
         <StyledContent gridArea='title'>
           <Logo type='dark' />
@@ -34,7 +35,7 @@ const Footer = ({ spacing }) => {
 
         <StyledFlexWrapper gridArea='copyright'>
           <p>&copy; 2021 Agencia Moderne - Todos Los Derechos Reservados</p>
-          <StyledButton onClick={toTop}>Volver arriba</StyledButton>
+          <StyledScrollButton onClick={toTop}>Volver arriba</StyledScrollButton>
         </StyledFlexWrapper>
       </StyledGrid>
     </footer>

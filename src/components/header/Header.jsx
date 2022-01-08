@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import {
   StyledHeader,
   StyledWrapper,
@@ -9,19 +10,23 @@ import {
 } from './styles';
 import HamburguerIcon from '../hamburguerIcon/HamburguerIcon';
 import Logo from '../logo/Logo';
+import MobileMenu from '../mobileMenu/MobileMenu';
 import { useHeader } from './useHeader';
+import { StyledScrollButton } from '../../styles/reusable/button';
 
 const Header = ({ light }) => {
   const {
-    pathname,
-    formatPath,
     headerRef,
     isBoxShadowActive,
     isMenuOpen,
-    setIsMenuOpen,
     isTextWhite,
+    currentWindowWidth,
+    pathname,
+    renderPathName,
+    setIsMenuOpen,
     headerControls,
     bgControls,
+    toFooter,
   } = useHeader(light);
 
   return (
@@ -60,15 +65,13 @@ const Header = ({ light }) => {
               stroke={isTextWhite ? 'var(--clr-light)' : 'var(--clr-dark)'}
             />
           </svg>
-          <p className={`moveElementForward-10 ${isTextWhite ? 'text-white' : 'text-dark'}`}>
-            {formatPath(pathname)}
-          </p>
+          <p className={`${isTextWhite ? 'text-white' : 'text-dark'}`}>{renderPathName}</p>
         </div>
 
         <a
           href='https://www.facebook.com/'
           target='_blank'
-          className={`header-link facebook-icon  moveElementForward-10 ${
+          className={`moveElementForward-10 header-link facebook-icon ${
             isTextWhite ? 'text-white' : 'text-dark'
           }`}
           rel='noreferrer'
@@ -78,7 +81,7 @@ const Header = ({ light }) => {
 
         <a
           href='mailto: moderne@gmail.com'
-          className={`header-link mail-icon moveElementForward-10 ${
+          className={`moveElementForward-10 header-link mail-icon ${
             isTextWhite ? 'text-white' : 'text-dark'
           }`}
           rel='noreferrer'
@@ -88,24 +91,35 @@ const Header = ({ light }) => {
 
         <Link
           to='/propiedades'
-          className={`header-link properties-link underline moveElementForward-10 ${
+          className={`moveElementForward-10 header-link properties-link underline ${
             isTextWhite ? 'text-white' : 'text-dark'
           }`}
         >
           Nuestras propiedades
         </Link>
 
-        <a
-          href='#contact'
-          className={`header-link contact-link moveElementForward-10 ${
+        <StyledScrollButton
+          color='white'
+          type='button'
+          className={`moveElementForward-10 header-link contact-link ${
             isTextWhite ? 'text-white' : 'text-dark'
           }`}
+          onClick={toFooter}
         >
           Contacto
-        </a>
+        </StyledScrollButton>
       </StyledWrapper>
 
+      {/* Background - Only on Home route */}
       {pathname === '/' ? <StyledBg initial={{ y: '-100%' }} animate={bgControls} /> : null}
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && currentWindowWidth < 1024 ? <MobileMenu /> : null}
+      </AnimatePresence>
+
+      {/* Desktop Menu */}
+      {isMenuOpen && currentWindowWidth >= 1024 ? <div /> : null}
     </StyledHeader>
   );
 };

@@ -2,9 +2,12 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { respondTo } from '../../styles/helpers';
 import { useEntranceContext } from '../../context/entranceContext';
+import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 
 const LogoEntry = () => {
+  const { width } = useWindowDimensions();
   const { setIsEntranceActive } = useEntranceContext();
+  const tabletBreakpoint = 768;
 
   const pathAnimation = {
     fromPath: () => ({
@@ -23,15 +26,15 @@ const LogoEntry = () => {
     }),
     exit: () => ({
       opacity: [1, 0.8, 0.5, 0],
+      x: width <= tabletBreakpoint ? -25 : -50,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
       },
     }),
   };
 
   return (
     <StyledSvg
-      className='moveElementForward-50'
       width='357'
       height='69'
       viewBox='0 0 357 69'
@@ -56,6 +59,8 @@ const LogoEntry = () => {
 // Styles
 const StyledSvg = styled(motion.svg)`
   width: 250px; // 450px;
+  position: relative;
+  z-index: 50;
 
   ${respondTo.md`
       width: 28.12rem; // 450px
