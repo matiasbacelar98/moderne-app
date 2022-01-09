@@ -14,7 +14,7 @@ const HamburguerIcon = ({ isMenuOpen, setIsMenuOpen, light }) => {
       aria-label={isMenuOpen ? 'Cerrar menu' : 'Abrir menu'}
       onClick={handleOnClick}
     >
-      <StyledIconWrapper isLight={isMenuOpen ? false : light}>
+      <StyledIconWrapper isLight={light}>
         <svg viewBox='0 0 100 100' className={`${isMenuOpen ? 'opened' : ''}`}>
           <path
             className='line line1'

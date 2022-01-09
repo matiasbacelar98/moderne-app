@@ -49,7 +49,7 @@ export const utilityClasses = css`
   .mobile-link {
     font-size: 2.2rem;
     font-weight: 400;
-    color: var(--clr-dark);
+    color: var(--clr-light);
     transition: color 0.2s ease;
 
     &:hover {
