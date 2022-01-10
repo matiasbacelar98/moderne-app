@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { fluidValues } from '../helpers';
 
 const StyledH1 = styled.h1`
   font-size: var(--fs-1);
@@ -27,27 +29,6 @@ const StyledError = styled.div`
   font-weight: 400;
 `;
 
-const StyledDesktopLink = styled.a`
-  font-size: var(--fs-2);
-  font-weight: 400;
-  transition: color 0.2s ease;
-
-  &:hover {
-    cursor: pointer;
-    color: var(--clr-blue);
-  }
-`;
-
-const StyledMobileLink = styled.a`
-  font-size: 1.8125rem; // 29px
-  font-weight: 400;
-  color: var(--clr-light);
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 const StyledBoxText = styled.span`
   font-size: var(--fs-text-large);
   color: var(--clr-light);
@@ -55,13 +36,11 @@ const StyledBoxText = styled.span`
   display: block;
 `;
 
-export {
-  StyledH1,
-  StyledH2,
-  StyledH3,
-  StyledError,
-  StyledInfo,
-  StyledDesktopLink,
-  StyledMobileLink,
-  StyledBoxText,
-};
+const StyledDesktopLink = styled(Link)`
+  font-size: ${fluidValues(1024, 1400, 70, 85)};
+  line-height: 1.2;
+  font-weight: 600;
+  user-select: none;
+`;
+
+export { StyledH1, StyledH2, StyledH3, StyledError, StyledInfo, StyledBoxText, StyledDesktopLink };

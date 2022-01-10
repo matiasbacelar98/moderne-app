@@ -36,39 +36,4 @@ const StyledFlexWrapper = styled.div`
   `}
 `;
 
-const StyledButton = styled.button`
-  display: none;
-  border: 0;
-  background-color: transparent;
-
-  ${respondTo.md`
-    position: relative;
-    display: inline-block;
-    font-size: var(--fs-text-large);
-    color: var(--clr-dark);
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 1px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--clr-dark);
-      transform: scaleX(0);
-      transform-origin: bottom right;
-      transition: transform 0.25s ease-out;
-    }   
-
-    &:hover::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
-  `}
-`;
-
-export { StyledGrid, StyledFlexWrapper, StyledContent, StyledButton };
+export { StyledGrid, StyledFlexWrapper, StyledContent };

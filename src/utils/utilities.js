@@ -1,9 +1,11 @@
+const htmlNode = document.querySelector('html');
+
 const addScrollbar = () => {
-  document.body.classList.remove('remove-scroll');
+  htmlNode.classList.remove('remove-scroll');
 };
 
 const removeScrollbar = () => {
-  document.body.classList.add('remove-scroll');
+  htmlNode.classList.add('remove-scroll');
 };
 
 const heightValue = 33.33333333333333;

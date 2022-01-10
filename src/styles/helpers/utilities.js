@@ -46,12 +46,19 @@ export const utilityClasses = css`
     max-width: 31.25rem; // 500px
   }
 
-  .active-desktop-link {
-    color: var(--clr-blue);
+  .mobile-link {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--clr-light);
+    transition: color 0.2s ease;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
-  .header-link {
-    font-size: var(--fs-text-large);
+  .active-link {
+    color: var(--clr-blue);
   }
 
   .underline {
@@ -72,7 +79,6 @@ export const utilityClasses = css`
   //--------- Various ---------//
   .remove-scroll {
     overflow-y: hidden;
-    padding-right: ${props => props.scrollbarWidth}px;
   }
 
   .boxShadow {
@@ -82,15 +88,5 @@ export const utilityClasses = css`
   .moveElementForward-10 {
     position: relative;
     z-index: 10;
-  }
-
-  .moveElementForward-20 {
-    position: relative;
-    z-index: 20;
-  }
-
-  .moveElementForward-50 {
-    position: relative;
-    z-index: 50;
   }
 `;

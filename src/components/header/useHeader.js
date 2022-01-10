@@ -2,20 +2,29 @@ import { useEffect, useState, useRef } from 'react';
 import { useDebounce } from 'use-debounce';
 import { useLocation } from 'react-router-dom';
 import { useAnimation } from 'framer-motion';
+import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 
 export const useHeader = light => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isTextWhite, setIsTextWhite] = useState(light);
   const [isBoxShadowActive, setIsBoxShadowActive] = useState(false);
-
   const [prevYPos, setPrevYPos] = useState(null);
+  const [renderPathName, setRenderPathName] = useState('');
+  const headerRef = useRef(null);
+
+  const { width } = useWindowDimensions();
+  const { pathname } = useLocation();
+
+  const [currentWindowWidth] = useDebounce(width, 1000);
   const [debouncePrevYPos] = useDebounce(prevYPos, 50);
 
-  const headerRef = useRef(null);
   const headerControls = useAnimation();
   const bgControls = useAnimation();
 
-  const { pathname } = useLocation();
+  const toFooter = () => {
+    const documentHeight = document.documentElement.scrollHeight;
+    window.scrollTo(0, documentHeight);
+  };
 
   // Animate Header on scroll
   useEffect(() => {
@@ -72,6 +81,14 @@ export const useHeader = light => {
       }
 
       if (currentYPos === 0) {
+        headerControls.start({
+          y: 0,
+          transition: {
+            duration: 0.3,
+            ease: [0.1, 0.25, 0.3, 1],
+          },
+        });
+
         if (pathname === '/') {
           bgControls.start({
             y: -headerHeight,
@@ -100,32 +117,44 @@ export const useHeader = light => {
     // eslint-disable-next-line
   }, [debouncePrevYPos]);
 
-  const formatPath = pathStr => {
-    const pathWithoutDashes = pathStr.replace(/-/g, ' ');
-    const pathWithoutBar = pathWithoutDashes.slice(1);
-    let text;
+  // Delay path
+  useEffect(() => {
+    const formatPath = pathStr => {
+      const pathWithoutDashes = pathStr.replace(/-/g, ' ');
+      const pathWithoutBar = pathWithoutDashes.slice(1);
 
-    if (pathWithoutBar === '') {
-      text = 'Home';
-    } else {
-      text = pathWithoutBar
-        .split(' ')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-    }
+      if (pathWithoutBar === '') {
+        setRenderPathName('Home');
+      } else {
+        const formatedPath = pathWithoutBar
+          .split(' ')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
 
-    return text;
-  };
+        setRenderPathName(formatedPath);
+      }
+    };
+
+    const timer = setTimeout(() => {
+      formatPath(pathname);
+    }, 90);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [pathname]);
 
   return {
-    pathname,
-    formatPath,
     headerRef,
     isBoxShadowActive,
     isMenuOpen,
-    setIsMenuOpen,
     isTextWhite,
+    currentWindowWidth,
+    pathname,
+    renderPathName,
+    setIsMenuOpen,
     headerControls,
     bgControls,
+    toFooter,
   };
 };

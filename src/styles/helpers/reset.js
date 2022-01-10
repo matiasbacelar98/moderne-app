@@ -8,6 +8,11 @@ export const reset = css`
     box-sizing: border-box;
   }
 
+  html {
+    margin-right: calc(-1 * (100vw - 100%));
+    overflow-x: hidden;
+  }
+
   /* Remove default margin */
   body,
   h1,
