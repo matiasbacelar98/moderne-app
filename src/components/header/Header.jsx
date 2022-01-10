@@ -1,6 +1,11 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import HamburguerIcon from '../hamburguerIcon/HamburguerIcon';
+import Logo from '../logo/Logo';
+import MobileMenu from '../mobileMenu/MobileMenu';
+import DesktopMenu from '../desktopMenu/DesktopMenu';
+import { addScrollbar } from '../../utils/utilities';
 import {
   StyledHeader,
   StyledWrapper,
@@ -8,9 +13,6 @@ import {
   StyledMailIcon,
   StyledBg,
 } from './styles';
-import HamburguerIcon from '../hamburguerIcon/HamburguerIcon';
-import Logo from '../logo/Logo';
-import MobileMenu from '../mobileMenu/MobileMenu';
 import { useHeader } from './useHeader';
 import { StyledScrollButton } from '../../styles/reusable/button';
 
@@ -119,7 +121,11 @@ const Header = ({ light }) => {
       </AnimatePresence>
 
       {/* Desktop Menu */}
-      {isMenuOpen && currentWindowWidth >= 1024 ? <div /> : null}
+      <AnimatePresence onExitComplete={addScrollbar}>
+        {isMenuOpen && currentWindowWidth >= 1024 ? (
+          <DesktopMenu setIsMenuOpen={setIsMenuOpen} />
+        ) : null}
+      </AnimatePresence>
     </StyledHeader>
   );
 };

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { fluidValues } from '../helpers';
 
 const StyledH1 = styled.h1`
   font-size: var(--fs-1);
@@ -34,4 +36,11 @@ const StyledBoxText = styled.span`
   display: block;
 `;
 
-export { StyledH1, StyledH2, StyledH3, StyledError, StyledInfo, StyledBoxText };
+const StyledDesktopLink = styled(Link)`
+  font-size: ${fluidValues(1024, 1400, 70, 85)};
+  line-height: 1.2;
+  font-weight: 600;
+  user-select: none;
+`;
+
+export { StyledH1, StyledH2, StyledH3, StyledError, StyledInfo, StyledBoxText, StyledDesktopLink };

@@ -57,17 +57,6 @@ export const utilityClasses = css`
     }
   }
 
-  .desktop-link {
-    font-size: var(--fs-2);
-    font-weight: 400;
-    transition: color 0.2s ease;
-
-    &:hover {
-      cursor: pointer;
-      color: var(--clr-blue);
-    }
-  }
-
   .active-link {
     color: var(--clr-blue);
   }
