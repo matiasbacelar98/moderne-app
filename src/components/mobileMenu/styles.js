@@ -7,7 +7,7 @@ const StyledFixedWrapper = styled(motion.div)`
   width: 100%;
   height: 100vh;
   z-index: 10;
-  background-color: hsla(var(--clr-dark-value), 0.8);
+  background-color: hsla(var(--clr-dark-value), 0.9);
 `;
 
 const StyledNav = styled(motion.nav)`
