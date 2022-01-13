@@ -121,7 +121,7 @@ const Header = ({ light }) => {
       </AnimatePresence>
 
       {/* Desktop Menu */}
-      <AnimatePresence onExitComplete={addScrollbar}>
+      <AnimatePresence exitBeforeEnter onExitComplete={addScrollbar}>
         {isMenuOpen && currentWindowWidth >= 1024 ? (
           <DesktopMenu setIsMenuOpen={setIsMenuOpen} />
         ) : null}

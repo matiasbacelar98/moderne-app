@@ -10,26 +10,22 @@ import {
   StyledLink,
 } from './styles';
 import arrowSvg from '../../assets/images/arrow-down-icon.svg';
+import placeholderImg from '../../assets/images/placeholder.png';
 import { useInterval } from '../../hooks/useInterval';
-
-import homeImg from '../../assets/images/home.png';
-import contactImg from '../../assets/images/contact.jpg';
-import propertiesImg from '../../assets/images/properties.jpg';
-import visionOne from '../../assets/images/vision-1.jpg';
-import visionTwo from '../../assets/images/vision-2.jpg';
+import { usePropertiesImages } from '../../api/usePropertiesImages';
 
 const Slider = () => {
   const [delaySliderAnim, setDelaySliderAnim] = useState(true);
   const [currentImg, setCurrentImg] = useState(0);
   const [currentPath, setCurrentPath] = useState(1);
+  const { isLoading, propertiesImages } = usePropertiesImages();
   const arrowControls = useAnimation();
-  const images = [contactImg, homeImg, propertiesImg, visionOne, visionTwo];
   const dots = [0, 1, 2, 3, 4];
 
   // Update paths
   useEffect(() => {
     setCurrentPath(currentImg + 1);
-  }, [images.length, currentImg]);
+  }, [currentImg]);
 
   // Delay slider start till transition finish
   useEffect(() => {
@@ -42,17 +38,21 @@ const Slider = () => {
   useInterval(() => {
     if (delaySliderAnim) return;
 
-    if (currentImg === images.length - 1) {
+    if (currentImg === propertiesImages.length - 1) {
       setCurrentImg(0);
     } else {
       setCurrentImg(currentImg + 1);
     }
   }, 5000);
 
+  const updateImgDots = index => {
+    setCurrentImg(index);
+  };
+
   return (
     <StyledWrapper>
       <StyledDotsWrapper>
-        {dots.map(dot => (
+        {dots.map((dot, index) => (
           <motion.button
             animate={{
               scale: dot === currentImg ? 1.5 : 1,
@@ -62,6 +62,7 @@ const Slider = () => {
             }}
             type='button'
             key={dot}
+            onClick={() => updateImgDots(index)}
           />
         ))}
       </StyledDotsWrapper>
@@ -72,10 +73,10 @@ const Slider = () => {
             <motion.img
               initial={{ opacity: 0 }}
               exit={{ opacity: 0, transition: { duration: 0.4 } }}
-              animate={{ opacity: 1, transition: { duration: 0.6 } }}
-              key={currentImg}
-              src={images[currentImg]}
-              alt='house'
+              animate={{ opacity: 1, transition: { duration: 0.5 } }}
+              key={isLoading ? 'placeholder' : propertiesImages[currentImg].id}
+              src={isLoading ? placeholderImg : propertiesImages[currentImg].img}
+              alt='propiedad'
             />
           </AnimatePresence>
         </StyledLinkImg>

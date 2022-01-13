@@ -74,6 +74,8 @@ const StyledLinkImg = styled(Link)`
   }
 
   img {
+    font-size: var(--fs-text-small);
+    color: var(--clr-light);
     width: 100%;
     height: 100%;
     object-fit: cover;

@@ -60,7 +60,7 @@ const DesktopMenu = ({ setIsMenuOpen }) => {
                 marginRight: currentImg === 0 ? '2.5rem' : 0,
               }}
             />
-            <StyledDesktopLink to='/'>
+            <StyledDesktopLink to='/' onClick={() => setIsMenuOpen(false)}>
               <svg
                 width='221'
                 height='70'
@@ -93,7 +93,7 @@ const DesktopMenu = ({ setIsMenuOpen }) => {
                 marginRight: currentImg === 1 ? '2.5rem' : 0,
               }}
             />
-            <StyledDesktopLink to='/sobre-moderne'>
+            <StyledDesktopLink to='/sobre-moderne' onClick={() => setIsMenuOpen(false)}>
               <svg
                 width='591'
                 height='70'
@@ -127,7 +127,7 @@ const DesktopMenu = ({ setIsMenuOpen }) => {
                 marginBottom: '1rem',
               }}
             />
-            <StyledDesktopLink to='/propiedades'>
+            <StyledDesktopLink to='/propiedades' onClick={() => setIsMenuOpen(false)}>
               <svg
                 width='495'
                 height='84'
