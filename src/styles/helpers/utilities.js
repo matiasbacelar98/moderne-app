@@ -11,7 +11,7 @@ export const utilityClasses = css`
     margin-top: 2.5rem; // 40px
   }
 
-  .footer-spacing-top {
+  .spacing-top {
     margin-top: var(--spacing-1);
   }
 
