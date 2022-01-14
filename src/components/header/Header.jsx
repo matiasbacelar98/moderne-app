@@ -101,7 +101,7 @@ const Header = ({ light }) => {
         </Link>
 
         <StyledScrollButton
-          color='white'
+          color={isTextWhite ? 'white' : 'black'}
           type='button'
           className={`moveElementForward-10 header-link contact-link ${
             isTextWhite ? 'text-white' : 'text-dark'

@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Helmet>
         <title>Agencia Moderne | Home</title>
-        <meta name='description' content='Hotel - Circulo de Oficiales SPB' />
+        <meta name='description' content='Pagina de Inicio - Agencia Moderne' />
       </Helmet>
 
       <main>

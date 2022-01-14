@@ -9,6 +9,8 @@ import Properties from './routes/properties/Properties';
 import SinglePropertie from './routes/singlePropertie/SinglePropertie';
 import NotFound from './routes/404/NotFound';
 
+import ScrollToTop from './components/scrollToTop/ScrollToTop';
+
 function App() {
   // Get scrollbarWidth of current browser
   const { width } = useScrollbarSize();
@@ -26,15 +28,17 @@ function App() {
     <>
       <GlobalStyles />
 
-      <AnimatePresence exitBeforeEnter>
-        <Routes location={location} key={location.pathname}>
-          <Route path='/' element={<Home />} />
-          <Route path='/sobre-moderne' element={<About />} />
-          <Route path='/propiedades' element={<Properties />} />
-          <Route path='/propiedades/:id' element={<SinglePropertie />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      </AnimatePresence>
+      <ScrollToTop>
+        <AnimatePresence exitBeforeEnter>
+          <Routes location={location} key={location.pathname}>
+            <Route path='/' element={<Home />} />
+            <Route path='/sobre-moderne' element={<About />} />
+            <Route path='/propiedades' element={<Properties />} />
+            <Route path='/propiedades/:id' element={<SinglePropertie />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </AnimatePresence>
+      </ScrollToTop>
     </>
   );
 }

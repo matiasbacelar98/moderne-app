@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import { motion, useTransform } from 'framer-motion';
@@ -20,11 +20,6 @@ const Qualities = ({ values, reverse }) => {
 
   // check window width and enable or disable animation
   const y = debounceWidth < 1024 ? 0 : yScrollValue;
-
-  // Scroll to top on first render
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <StyledGrid className='flow-spacing-content rm-spacing-xl' reverse={reverse}>
