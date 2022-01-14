@@ -55,7 +55,7 @@ const StyledImgWrapper = styled.div`
     width: 100%;
     height: 100%;
     background-color: hsla(var(--clr-dark-value), 0.5);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
   }
 
   img {
