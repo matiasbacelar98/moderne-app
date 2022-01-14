@@ -1,8 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import Hero from './sections/Hero';
 import Content from './sections/Content';
-import Transitions from '../../components/transitions/Transitions';
-import Footer from '../../components/footer/Footer';
+import Layout from '../../components/layout/Layout';
 
 const Home = () => {
   return (
@@ -12,16 +11,13 @@ const Home = () => {
         <meta name='description' content='Pagina de Inicio - Agencia Moderne' />
       </Helmet>
 
-      <main>
-        <Hero />
+      <Layout headerIsLight>
+        <main>
+          <Hero />
 
-        <Content />
-      </main>
-
-      <Footer spacing='spacing-top footer-spacing-bottom' />
-
-      {/* Page Transitions */}
-      <Transitions />
+          <Content />
+        </main>
+      </Layout>
     </>
   );
 };
