@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components';
 import Layout from '../../components/layout/Layout';
 import Button from '../../components/btn/Button';
@@ -5,16 +6,23 @@ import { StyledError, StyledH3 } from '../../styles/reusable/typography';
 
 const NotFound = () => {
   return (
-    <Layout headerIsLight={false}>
-      <StyledMain className='wrapper spacing-top'>
-        <StyledError>404</StyledError>
-        <StyledH3>Ha ocurrido un error...</StyledH3>
+    <>
+      <Helmet>
+        <title>Agencia Moderne | Error</title>
+        <meta name='description' content='Pagina de Error' />
+      </Helmet>
 
-        <div className='adjust-button-pos'>
-          <Button path='/' text='Volver a inicio' />
-        </div>
-      </StyledMain>
-    </Layout>
+      <Layout headerIsLight={false}>
+        <StyledMain className='wrapper spacing-top'>
+          <StyledError>404</StyledError>
+          <StyledH3>Ha ocurrido un error...</StyledH3>
+
+          <div className='adjust-button-pos'>
+            <Button path='/' text='Volver a inicio' />
+          </div>
+        </StyledMain>
+      </Layout>
+    </>
   );
 };
 
