@@ -24,9 +24,10 @@ const StyledInfo = styled.span`
   font-weight: 400;
 `;
 
-const StyledError = styled.div`
+const StyledError = styled.span`
   font-size: var(--fs-error);
   font-weight: 400;
+  line-height: 1;
 `;
 
 const StyledBoxText = styled.span`

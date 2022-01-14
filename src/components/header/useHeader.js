@@ -13,7 +13,7 @@ export const useHeader = light => {
   const headerRef = useRef(null);
 
   const { width } = useWindowDimensions();
-  const { pathname } = useLocation();
+  const { pathname, key } = useLocation();
 
   const [currentWindowWidth] = useDebounce(width, 1000);
   const [debouncePrevYPos] = useDebounce(prevYPos, 50);
@@ -123,16 +123,22 @@ export const useHeader = light => {
       const pathWithoutDashes = pathStr.replace(/-/g, ' ');
       const pathWithoutBar = pathWithoutDashes.slice(1);
 
+      if (key === 'default') {
+        setRenderPathName('Error');
+        return;
+      }
+
       if (pathWithoutBar === '') {
         setRenderPathName('Home');
-      } else {
-        const formatedPath = pathWithoutBar
-          .split(' ')
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(' ');
-
-        setRenderPathName(formatedPath);
+        return;
       }
+
+      const formatedPath = pathWithoutBar
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+      setRenderPathName(formatedPath);
     };
 
     const timer = setTimeout(() => {
@@ -142,7 +148,7 @@ export const useHeader = light => {
     return () => {
       clearTimeout(timer);
     };
-  }, [pathname]);
+  }, [pathname, key]);
 
   return {
     headerRef,

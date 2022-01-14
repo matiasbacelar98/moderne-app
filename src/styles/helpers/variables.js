@@ -8,7 +8,7 @@ export const variables = css`
     --fs-1: ${fluidValues(280, 1400, 41, 83)};
     --fs-2: ${fluidValues(280, 1400, 32, 48)};
     --fs-3: ${fluidValues(280, 1400, 29, 40)};
-    --fs-error: ${fluidValues(280, 1400, 180, 350)};
+    --fs-error: ${fluidValues(280, 1400, 150, 350)};
     --fs-text-large: ${fluidValues(280, 1400, 16, 20)};
     --fs-text-small: 1rem;
     --line-height-text: 1.5;
