@@ -29,9 +29,13 @@ const Slider = () => {
 
   // Delay slider start till transition finish
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setDelaySliderAnim(false);
     }, 6000);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   // Update img src
