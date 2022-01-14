@@ -25,6 +25,7 @@ const StyledArrowWrapper = styled.div`
   place-items: center;
   width: 4rem;
   height: 4rem;
+  padding-right: 1.2rem;
 `;
 
 const StyledArrowIcon = styled(motion.svg)`

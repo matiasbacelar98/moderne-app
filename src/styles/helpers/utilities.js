@@ -11,16 +11,12 @@ export const utilityClasses = css`
     margin-top: 2.5rem; // 40px
   }
 
-  .header-spacing-top {
-    margin-top: 3.5rem; // 56px
-  }
-
-  .footer-spacing-top {
+  .spacing-top {
     margin-top: var(--spacing-1);
   }
 
   .footer-spacing-bottom {
-    margin-bottom: 3.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .rm-spacing-xl > * + * {
