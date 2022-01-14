@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-no-constructed-context-values */
 import { createContext, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
@@ -10,12 +9,12 @@ const EntranceContext = createContext();
 export const useEntranceContext = () => useContext(EntranceContext);
 
 // Provider
-const EntranceProvider = props => {
+const EntranceProvider = ({ children }) => {
   const [isEntranceActive, setIsEntranceActive] = useState(true);
 
   return (
     <EntranceContext.Provider value={{ isEntranceActive, setIsEntranceActive }}>
-      {props.children}
+      {children}
     </EntranceContext.Provider>
   );
 };

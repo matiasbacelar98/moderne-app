@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 import bgImage from '../../../assets/images/bg.jpg';
 import Button from '../../../components/btn/Button';
-import Header from '../../../components/header/Header';
 import Slider from '../../../components/slider/Slider';
 import { StyledH1 } from '../../../styles/reusable/typography';
 
 const Hero = () => {
   return (
     <StyledBgImgWrapper>
-      <Header light />
-
       <StyledContent className='wrapper flow-spacing-content'>
         <StyledH1 light className='max-width-500'>
           Innovación y tecnologia

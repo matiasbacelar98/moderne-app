@@ -132,11 +132,7 @@ const Header = ({ light }) => {
 
 // Proptypes
 Header.propTypes = {
-  light: PropTypes.bool,
-};
-
-Header.defaultProps = {
-  light: false,
+  light: PropTypes.bool.isRequired,
 };
 
 export default Header;
