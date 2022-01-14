@@ -16,12 +16,12 @@ const Home = () => {
         <Hero />
 
         <Content />
-
-        <Footer spacing='spacing-top footer-spacing-bottom' />
-
-        {/* Page Transitions */}
-        <Transitions />
       </main>
+
+      <Footer spacing='spacing-top footer-spacing-bottom' />
+
+      {/* Page Transitions */}
+      <Transitions />
     </>
   );
 };

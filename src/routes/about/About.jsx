@@ -12,16 +12,16 @@ const About = () => {
         <meta name='description' content='Informacion sobre la Agencia Moderne' />
       </Helmet>
 
+      <Header />
+
       <main>
-        <Header />
-
         <Content />
-
-        <Footer spacing='spacing-top footer-spacing-bottom' />
-
-        {/* Page Transitions */}
-        <Transitions />
       </main>
+
+      <Footer spacing='spacing-top footer-spacing-bottom' />
+
+      {/* Page Transitions */}
+      <Transitions />
     </>
   );
 };
