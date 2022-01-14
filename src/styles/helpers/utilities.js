@@ -16,7 +16,7 @@ export const utilityClasses = css`
   }
 
   .footer-spacing-bottom {
-    margin-bottom: 3.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .rm-spacing-xl > * + * {
