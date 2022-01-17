@@ -1,21 +1,23 @@
-import { Helmet } from 'react-helmet-async';
-import Hero from './sections/Hero';
-import Content from './sections/Content';
-import Layout from '../../components/layout/Layout';
+import Head from '../../components/reusable/head/Head';
+import Layout from '../../components/reusable/layout/Layout';
+import Hero from '../../sections/home/Hero';
+import Content from '../../sections/home/Content';
+import Navigation from '../../components/reusable/navigation/Navigation';
+import { propertiesBox, aboutBox } from '../../utils/navigationData';
 
 const Home = () => {
   return (
     <>
-      <Helmet>
-        <title>Agencia Moderne | Home</title>
-        <meta name='description' content='Pagina de Inicio - Agencia Moderne' />
-      </Helmet>
+      <Head title='Home' description='Pagina de Inicio - Agencia Moderne' />
 
-      <Layout headerIsLight>
+      <Layout isHeaderLight>
         <main>
           <Hero />
-
           <Content />
+
+          <section>
+            <Navigation boxOneValues={propertiesBox} boxTwoValues={aboutBox} />
+          </section>
         </main>
       </Layout>
     </>

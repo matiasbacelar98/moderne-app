@@ -2,14 +2,13 @@ import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import useScrollbarSize from 'react-scrollbar-size';
-import GlobalStyles from './styles/globalStyles';
 import Home from './routes/home/Home';
 import About from './routes/about/About';
 import Properties from './routes/properties/Properties';
 import SinglePropertie from './routes/singlePropertie/SinglePropertie';
 import NotFound from './routes/404/NotFound';
-
-import ScrollToTop from './components/scrollToTop/ScrollToTop';
+import GlobalStyles from './styles/globalStyles';
+import ScrollToTop from './components/isolated/scrollToTop/ScrollToTop';
 
 function App() {
   // Get scrollbarWidth of current browser

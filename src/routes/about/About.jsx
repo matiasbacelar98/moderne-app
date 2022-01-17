@@ -1,18 +1,21 @@
-import { Helmet } from 'react-helmet-async';
-import Content from './sections/Content';
-import Layout from '../../components/layout/Layout';
+import Head from '../../components/reusable/head/Head';
+import Layout from '../../components/reusable/layout/Layout';
+import Navigation from '../../components/reusable/navigation/Navigation';
+import Content from '../../sections/about/Content';
+import { homeBox, propertiesBox } from '../../utils/navigationData';
 
 const About = () => {
   return (
     <>
-      <Helmet>
-        <title>Agencia Moderne | Sobre-Moderne</title>
-        <meta name='description' content='Informacion sobre la Agencia Moderne' />
-      </Helmet>
+      <Head title='Sobre-Moderne' description='Informacion sobre la Agencia Moderne' />
 
       <Layout isHeaderLight={false}>
         <main>
           <Content />
+
+          <section>
+            <Navigation boxOneValues={homeBox} boxTwoValues={propertiesBox} />
+          </section>
         </main>
       </Layout>
     </>
