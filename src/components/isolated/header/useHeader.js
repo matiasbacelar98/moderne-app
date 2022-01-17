@@ -123,7 +123,7 @@ export const useHeader = light => {
       const pathWithoutDashes = pathStr.replace(/-/g, ' ');
       const pathWithoutBar = pathWithoutDashes.slice(1);
 
-      if (key === 'default') {
+      if (key === 'default' && pathWithoutBar !== '') {
         setRenderPathName('Error');
         return;
       }
