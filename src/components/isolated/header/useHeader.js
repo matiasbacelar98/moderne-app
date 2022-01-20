@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useDebounce } from 'use-debounce';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useAnimation } from 'framer-motion';
 import { useWindowDimensions } from '../../../hooks/useWindowDimensions';
 
@@ -14,6 +14,7 @@ export const useHeader = light => {
 
   const { width } = useWindowDimensions();
   const { pathname, key } = useLocation();
+  const { id } = useParams();
 
   const [currentWindowWidth] = useDebounce(width, 1000);
   const [debouncePrevYPos] = useDebounce(prevYPos, 50);
@@ -123,13 +124,21 @@ export const useHeader = light => {
       const pathWithoutDashes = pathStr.replace(/-/g, ' ');
       const pathWithoutBar = pathWithoutDashes.slice(1);
 
+      // Error route
       if (key === 'default' && pathWithoutBar !== '') {
         setRenderPathName('Error');
         return;
       }
 
+      // Home route
       if (pathWithoutBar === '') {
         setRenderPathName('Home');
+        return;
+      }
+
+      // Dynamic routes
+      if (id) {
+        setRenderPathName(`Propiedades`);
         return;
       }
 
@@ -148,7 +157,7 @@ export const useHeader = light => {
     return () => {
       clearTimeout(timer);
     };
-  }, [pathname, key]);
+  }, [pathname, key, id]);
 
   return {
     headerRef,
