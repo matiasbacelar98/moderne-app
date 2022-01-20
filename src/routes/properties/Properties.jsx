@@ -2,6 +2,7 @@ import Layout from '../../components/reusable/layout/Layout';
 import Head from '../../components/reusable/head/Head';
 import Navigation from '../../components/reusable/navigation/Navigation';
 import PropertiesMap from '../../components/isolated/propertiesMap/PropertiesMap';
+import PropertiesGrid from '../../components/isolated/propertiesGrid/PropertiesGrid';
 import { homeBox, aboutBox } from '../../utils/navigationData';
 
 const Properties = () => {
@@ -12,6 +13,8 @@ const Properties = () => {
       <Layout isHeaderLight={false}>
         <main className='flow-spacing'>
           <PropertiesMap />
+
+          <PropertiesGrid />
 
           <section>
             <Navigation boxOneValues={homeBox} boxTwoValues={aboutBox} />
