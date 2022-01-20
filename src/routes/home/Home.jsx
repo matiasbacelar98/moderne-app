@@ -11,8 +11,9 @@ const Home = () => {
       <Head title='Home' description='Pagina de Inicio - Agencia Moderne' />
 
       <Layout isHeaderLight>
-        <main>
+        <main className='flow-spacing'>
           <Hero />
+
           <Content />
 
           <section>

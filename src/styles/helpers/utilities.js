@@ -12,6 +12,10 @@ export const utilityClasses = css`
   }
 
   .spacing-top {
+    margin-top: calc(var(--spacing-1) + 88px);
+  }
+
+  .footer-spacing-top {
     margin-top: var(--spacing-1);
   }
 
@@ -40,6 +44,10 @@ export const utilityClasses = css`
 
   .max-width-500 {
     max-width: 31.25rem; // 500px
+  }
+
+  .max-width-700 {
+    max-width: 43.75rem; // 700px
   }
 
   .mobile-link {

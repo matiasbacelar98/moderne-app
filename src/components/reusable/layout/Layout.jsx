@@ -10,7 +10,7 @@ const Layout = ({ children, isHeaderLight }) => {
 
       {children}
 
-      <Footer spacing='spacing-top footer-spacing-bottom' />
+      <Footer spacing='footer-spacing-top footer-spacing-bottom' />
 
       {/* Out of document flow */}
       <Animations />

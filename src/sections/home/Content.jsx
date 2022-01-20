@@ -5,7 +5,7 @@ import { qualityOne, qualityTwo, qualityThree } from '../../utils/qualitiesData'
 
 const Content = () => {
   return (
-    <section className='wrapper spacing-top flow-spacing'>
+    <section className='wrapper flow-spacing'>
       <StyledH2>Nuestra Vision</StyledH2>
 
       <Qualities values={qualityOne} />

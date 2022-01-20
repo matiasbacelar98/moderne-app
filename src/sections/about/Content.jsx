@@ -5,7 +5,7 @@ import aboutMainImg from '../../assets/images/about-main.png';
 
 const Content = () => {
   return (
-    <>
+    <section className='flow-spacing'>
       <StyledWrapper className='wrapper flow-spacing-content'>
         <div>
           <StyledSubText className='sub-title'>Como nacio la Agencia Moderne</StyledSubText>
@@ -33,13 +33,13 @@ const Content = () => {
         </StyledParragraph>
       </StyledWrapper>
 
-      <StyledImg className='spacing-top' src={aboutMainImg} alt='interior casa' />
-    </>
+      <StyledImg src={aboutMainImg} alt='interior casa' />
+    </section>
   );
 };
 
 // Styles
-const StyledWrapper = styled.section`
+const StyledWrapper = styled.div`
   display: grid;
   place-items: center;
   text-align: center;

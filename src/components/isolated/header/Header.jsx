@@ -116,12 +116,12 @@ const Header = ({ light }) => {
       {pathname === '/' ? <StyledBg initial={{ y: '-100%' }} animate={bgControls} /> : null}
 
       {/* Mobile Menu */}
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={addScrollbar}>
         {isMenuOpen && currentWindowWidth < 1024 ? <MobileMenu /> : null}
       </AnimatePresence>
 
       {/* Desktop Menu */}
-      <AnimatePresence exitBeforeEnter onExitComplete={addScrollbar}>
+      <AnimatePresence exitBeforeEnter>
         {isMenuOpen && currentWindowWidth >= 1024 ? (
           <DesktopMenu setIsMenuOpen={setIsMenuOpen} />
         ) : null}

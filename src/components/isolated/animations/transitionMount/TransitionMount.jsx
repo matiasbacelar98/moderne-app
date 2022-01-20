@@ -18,7 +18,7 @@ const TransitionMount = ({ isEntranceActive }) => {
     if (isEntranceActive) return;
 
     animationControls.start('to');
-  }, []);
+  }, [isEntranceActive, animationControls]);
 
   const onAnimationComplete = () => {
     setFixedWrapperWidth('0');

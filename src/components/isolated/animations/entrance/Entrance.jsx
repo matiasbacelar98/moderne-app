@@ -52,7 +52,7 @@ const Entrance = () => {
       <StyledSvg
         width='357'
         height='69'
-        viewBox='0 0 357 69'
+        viewBox='0 0 358 69'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
         exit={pathAnimation.exit}
