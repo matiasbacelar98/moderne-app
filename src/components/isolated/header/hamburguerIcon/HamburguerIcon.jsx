@@ -1,20 +1,14 @@
 import PropTypes from 'prop-types';
 import { StyledBtn, StyledIconWrapper } from './styles';
-import { addScrollbar, removeScrollbar } from '../../../../utils/utilities';
 
 const HamburguerIcon = ({ isMenuOpen, setIsMenuOpen, light }) => {
-  const handleOnClick = () => {
-    setIsMenuOpen(prev => !prev);
-    isMenuOpen ? addScrollbar() : removeScrollbar();
-  };
-
   return (
     <StyledBtn
       type='button'
       aria-label={isMenuOpen ? 'Cerrar menu' : 'Abrir menu'}
-      onClick={handleOnClick}
+      onClick={() => setIsMenuOpen(prev => !prev)}
     >
-      <StyledIconWrapper isLight={light}>
+      <StyledIconWrapper isLight={isMenuOpen || light}>
         <svg viewBox='0 0 100 100' className={`${isMenuOpen ? 'opened' : ''}`}>
           <path
             className='line line1'

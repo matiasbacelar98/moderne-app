@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { StyledFixedWrapper, StyledNav, StyledLi } from './styles';
 import { fixedWrapperAnimations, navAnimations, liAnimations } from './animations';
+import { removeScrollbar } from '../../../../utils/utilities';
 
 const MobileMenu = () => {
   const location = useLocation();
@@ -11,6 +12,7 @@ const MobileMenu = () => {
       animate={fixedWrapperAnimations.to}
       exit={fixedWrapperAnimations.out}
       key='mobile-menu'
+      onAnimationStart={removeScrollbar}
     >
       <StyledNav className='wrapper' variants={navAnimations} animate='to'>
         <StyledLi initial={liAnimations.from} variants={liAnimations}>

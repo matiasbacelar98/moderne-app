@@ -19,6 +19,7 @@ import {
   StyledImgWrapper,
 } from './styles';
 import { useDesktopMenu } from './useDesktopMenu';
+import { removeScrollbar, addScrollbar } from '../../../../utils/utilities';
 
 const DesktopMenu = ({ setIsMenuOpen }) => {
   const [
@@ -32,17 +33,27 @@ const DesktopMenu = ({ setIsMenuOpen }) => {
     handleMouseLeave,
   ] = useDesktopMenu();
 
+  const handleClose = () => {
+    setIsMenuOpen(false);
+
+    // wait till menu is gone
+    setTimeout(() => {
+      addScrollbar();
+    }, 600);
+  };
+
   return (
     <StyledWrapper
       key='menu-desktop'
       initial={{ y: '-100vh' }}
       animate={() => styledWrapperAnim.to(0)}
       exit={() => styledWrapperAnim.exit('-100vh')}
+      onAnimationStart={removeScrollbar}
     >
       <StyledMenuHeader className='wrapper'>
         <Logo type='light' />
 
-        <StyledButton type='button' onClick={() => setIsMenuOpen(false)}>
+        <StyledButton type='button' onClick={handleClose}>
           <StyledCloseIcon />
         </StyledButton>
       </StyledMenuHeader>

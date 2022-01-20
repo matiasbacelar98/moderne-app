@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import PlaceholderLoading from 'react-placeholder-loading';
 import arrowSvg from '../../../assets/images/arrow-down-icon.svg';
-import placeholderImg from '../../../assets/images/placeholder.png';
 import { useInterval } from '../../../hooks/useInterval';
 import { usePropertiesImages } from '../../../api/usePropertiesImages';
 import {
@@ -73,16 +73,20 @@ const Slider = () => {
 
       <StyledContentWrapper>
         <StyledLinkImg to={`/propiedades/${currentPath}`}>
-          <AnimatePresence exitBeforeEnter>
-            <motion.img
-              initial={{ opacity: 0 }}
-              exit={{ opacity: 0, transition: { duration: 0.4 } }}
-              animate={{ opacity: 1, transition: { duration: 0.5 } }}
-              key={isLoading ? 'placeholder' : propertiesImages[currentImg].id}
-              src={isLoading ? placeholderImg : propertiesImages[currentImg].img}
-              alt='propiedad'
-            />
-          </AnimatePresence>
+          {isLoading ? (
+            <PlaceholderLoading shape='rect' width='100%' height='100%' />
+          ) : (
+            <AnimatePresence exitBeforeEnter>
+              <motion.img
+                initial={{ opacity: 0 }}
+                exit={{ opacity: 0, transition: { duration: 0.4 } }}
+                animate={{ opacity: 1, transition: { duration: 0.5 } }}
+                key={propertiesImages[currentImg].id}
+                src={propertiesImages[currentImg].img}
+                alt='propiedad'
+              />
+            </AnimatePresence>
+          )}
         </StyledLinkImg>
 
         <StyledLinkBox>
