@@ -1,29 +1,21 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import Error from '../../../components/reusable/error/Error';
 import InfoSkeleton from './infoSkeleton/InfoSkeleton';
 import { useSinglePropertie } from '../../../api/useSinglePropertie';
+import { useEntranceContext } from '../../../context/entranceContext';
 import {
   StyledSection,
   StyledTitleWrapper,
   StyledFlexWrapper,
   StyledBox,
   StyledImgWrapper,
-  StyledErrorWrapper,
 } from './styles';
-import { StyledH1, StyledH2, StyledInfo } from '../../../styles/reusable/typography';
+import { StyledH1, StyledInfo } from '../../../styles/reusable/typography';
+import { textAnimations, boxWrapperAnimations } from './animations';
 
 const Info = () => {
-  const [data, setData] = useState({});
-  const { id } = useParams();
-  const { isLoading, error, singlePropertie } = useSinglePropertie(id);
-
-  // Wait till singlePropertie is ready
-  useEffect(() => {
-    if (isLoading) return;
-
-    // Populate data
-    setData(...singlePropertie);
-  }, [isLoading, singlePropertie]);
+  const { isLoading, error, singlePropertie } = useSinglePropertie();
+  const { isEntranceActive } = useEntranceContext();
 
   if (isLoading) {
     return <InfoSkeleton />;
@@ -32,11 +24,7 @@ const Info = () => {
   if (error) {
     return (
       <section>
-        <StyledErrorWrapper className='wrapper'>
-          <StyledH2 className='max-width-700'>
-            Ha ocurrido un error , por favor recargue la pagina
-          </StyledH2>
-        </StyledErrorWrapper>
+        <Error />
       </section>
     );
   }
@@ -44,29 +32,67 @@ const Info = () => {
   return (
     <StyledSection>
       <StyledTitleWrapper className='wrapper'>
-        <StyledH1>{data.title}</StyledH1>
-        <StyledInfo as='h2'>{data.direction}</StyledInfo>
+        <motion.div initial={{ overflow: 'hidden' }}>
+          <StyledH1
+            initial={textAnimations.from}
+            animate={() => textAnimations.to(isEntranceActive, 4.4)}
+          >
+            {singlePropertie[0].title}
+          </StyledH1>
+        </motion.div>
+
+        <motion.div initial={{ overflow: 'hidden' }}>
+          <StyledInfo
+            initial={textAnimations.from}
+            animate={() => textAnimations.to(isEntranceActive, 4.5)}
+          >
+            {singlePropertie[0].direction}
+          </StyledInfo>
+        </motion.div>
       </StyledTitleWrapper>
 
-      <StyledFlexWrapper className='wrapper flow-spacing-content rm-spacing-xl'>
-        <StyledBox>
-          <p>Direccion</p>
-          <StyledInfo>{data.direction}</StyledInfo>
-        </StyledBox>
+      <motion.div initial={{ overflow: 'hidden' }}>
+        <StyledFlexWrapper
+          initial={() => boxWrapperAnimations.from(window.innerWidth)}
+          animate={() => boxWrapperAnimations.to(isEntranceActive, 5)}
+          className='wrapper flow-spacing-content rm-spacing-xl'
+        >
+          <StyledBox>
+            <p>Direccion</p>
+            <StyledInfo>{singlePropertie[0].direction}</StyledInfo>
+          </StyledBox>
 
-        <StyledBox borders>
-          <p>En venta desde</p>
-          <StyledInfo>{data.year}</StyledInfo>
-        </StyledBox>
+          <StyledBox borders>
+            <p>En venta desde</p>
+            <StyledInfo>{singlePropertie[0].year}</StyledInfo>
+          </StyledBox>
 
-        <StyledBox>
-          <p>Habitaciones</p>
-          <StyledInfo>{data.rooms}</StyledInfo>
-        </StyledBox>
-      </StyledFlexWrapper>
+          <StyledBox>
+            <p>Habitaciones</p>
+            <StyledInfo>{singlePropertie[0].rooms}</StyledInfo>
+          </StyledBox>
+        </StyledFlexWrapper>
+      </motion.div>
 
       <StyledImgWrapper>
-        <img src={data.img} alt='propiedad' />
+        <motion.img
+          initial={{
+            y: 200,
+            opacity: 0,
+          }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            transition: {
+              duration: 0.7,
+              ease: 'easeOut',
+              type: 'tween',
+            },
+          }}
+          viewport={{ once: true, amount: 'some' }}
+          src={singlePropertie[0].img}
+          alt='propiedad'
+        />
       </StyledImgWrapper>
     </StyledSection>
   );

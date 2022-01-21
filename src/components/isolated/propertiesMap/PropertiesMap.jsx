@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import PlaceholderLoading from 'react-placeholder-loading';
-import { StyledH1, StyledH2 } from '../../../styles/reusable/typography';
+import Error from '../../reusable/error/Error';
+import { StyledH1 } from '../../../styles/reusable/typography';
 import { StyledMapWrapper, StyledOverlay, StyledTitleWrapper, StyledCloseBtn } from './styles';
 import { usePropertiesMap } from './usePropertiesMap';
 import { attributionText, icon, apiKey } from './utils';
@@ -20,7 +21,7 @@ const PropertiesMap = () => {
   if (error) {
     return (
       <StyledMapWrapper className='wrapper'>
-        <StyledH2 className='max-width-700'>No se ha podido cargar el mapa</StyledH2>
+        <Error />
       </StyledMapWrapper>
     );
   }

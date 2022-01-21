@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { fluidValues } from '../helpers';
 
-const StyledH1 = styled.h1`
+const StyledH1 = styled(motion.h1)`
   font-size: var(--fs-1);
   font-weight: 600;
   color: ${props => (props.light ? 'var(--clr-light)' : 'var(--clr-dark)')};
@@ -19,7 +20,8 @@ const StyledH3 = styled.h3`
   font-weight: ${props => (props.regular ? '400' : '600')};
 `;
 
-const StyledInfo = styled.span`
+const StyledInfo = styled(motion.span)`
+  display: block;
   font-size: 1.8125rem; // 29px
   font-weight: 400;
 `;

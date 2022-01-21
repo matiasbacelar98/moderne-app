@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 import { fluidValues, respondTo } from '../../../styles/helpers';
 
@@ -13,7 +14,7 @@ const StyledTitleWrapper = styled.div`
   }
 `;
 
-const StyledFlexWrapper = styled.div`
+const StyledFlexWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
 
@@ -68,17 +69,4 @@ const StyledImgWrapper = styled.div`
   }
 `;
 
-const StyledErrorWrapper = styled.div`
-  display: grid;
-  place-items: center;
-  text-align: center;
-`;
-
-export {
-  StyledSection,
-  StyledTitleWrapper,
-  StyledFlexWrapper,
-  StyledBox,
-  StyledImgWrapper,
-  StyledErrorWrapper,
-};
+export { StyledSection, StyledTitleWrapper, StyledFlexWrapper, StyledBox, StyledImgWrapper };
