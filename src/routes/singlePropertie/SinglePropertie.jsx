@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import Info from '../../sections/singleProperties/info/Info';
 import Layout from '../../components/reusable/layout/Layout';
 import Head from '../../components/reusable/head/Head';
 import Navigation from '../../components/reusable/navigation/Navigation';
@@ -13,6 +14,8 @@ const SinglePropertie = () => {
 
       <Layout isHeaderLight={false}>
         <main className='flow-spacing spacing-top'>
+          <Info />
+
           <section>
             <Navigation boxOneValues={propertiesBox} boxTwoValues={aboutBox} />
           </section>

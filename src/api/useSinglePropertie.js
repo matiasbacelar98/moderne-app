@@ -10,7 +10,7 @@ export const useSinglePropertie = id => {
     isLoading,
     error,
     data: singlePropertie,
-  } = useQuery(`propertie-${id}`, fetchSinglePropertie(id));
+  } = useQuery(['properties', id], () => fetchSinglePropertie(id));
 
   return { isLoading, error, singlePropertie };
 };

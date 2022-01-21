@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import EntranceProvider from './context/entranceContext';
@@ -15,8 +14,6 @@ ReactDOM.render(
           <EntranceProvider>
             <App />
           </EntranceProvider>
-
-          <ReactQueryDevtools initialIsOpen />
         </QueryClientProvider>
       </BrowserRouter>
     </HelmetProvider>
