@@ -16,9 +16,7 @@ const Properties = () => {
 
           <PropertiesGrid />
 
-          <section>
-            <Navigation boxOneValues={homeBox} boxTwoValues={aboutBox} />
-          </section>
+          <Navigation boxOneValues={homeBox} boxTwoValues={aboutBox} />
         </main>
       </Layout>
     </>

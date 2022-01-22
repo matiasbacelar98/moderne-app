@@ -12,23 +12,25 @@ const Navigation = ({ boxOneValues, boxTwoValues }) => {
   } = boxTwoValues;
 
   return (
-    <StyledWrapper>
-      <StyledBox to={pathTo}>
-        <StyledBoxText>{text}</StyledBoxText>
-        <StyledH2 light>{title}</StyledH2>
-        <StyledImgWrapper className='img'>
-          <img src={imgSrc} alt={title} />
-        </StyledImgWrapper>
-      </StyledBox>
+    <section>
+      <StyledWrapper>
+        <StyledBox to={pathTo}>
+          <StyledBoxText>{text}</StyledBoxText>
+          <StyledH2 light>{title}</StyledH2>
+          <StyledImgWrapper className='img'>
+            <img src={imgSrc} alt={title} />
+          </StyledImgWrapper>
+        </StyledBox>
 
-      <StyledBox to={pathBoxTwo}>
-        <StyledBoxText>{textBoxTwo}</StyledBoxText>
-        <StyledH2 light>{titleBoxTwo}</StyledH2>
-        <StyledImgWrapper className='img'>
-          <img src={imgSrcBoxTwo} alt={titleBoxTwo} />
-        </StyledImgWrapper>
-      </StyledBox>
-    </StyledWrapper>
+        <StyledBox to={pathBoxTwo}>
+          <StyledBoxText>{textBoxTwo}</StyledBoxText>
+          <StyledH2 light>{titleBoxTwo}</StyledH2>
+          <StyledImgWrapper className='img'>
+            <img src={imgSrcBoxTwo} alt={titleBoxTwo} />
+          </StyledImgWrapper>
+        </StyledBox>
+      </StyledWrapper>
+    </section>
   );
 };
 

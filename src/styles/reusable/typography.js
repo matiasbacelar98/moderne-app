@@ -9,7 +9,7 @@ const StyledH1 = styled(motion.h1)`
   color: ${props => (props.light ? 'var(--clr-light)' : 'var(--clr-dark)')};
 `;
 
-const StyledH2 = styled.h2`
+const StyledH2 = styled(motion.h2)`
   font-size: var(--fs-2);
   font-weight: ${props => (props.regular ? '400' : '600')};
   color: ${props => (props.light ? 'var(--clr-light)' : 'var(--clr-dark)')};

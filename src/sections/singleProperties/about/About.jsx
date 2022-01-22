@@ -1,27 +1,52 @@
-import styled from 'styled-components';
-import { v4 as uuidv4 } from 'uuid';
-import PlaceholderLoading from 'react-placeholder-loading';
+import { motion, useAnimation } from 'framer-motion';
+import AboutSkeleton from './aboutSkeleton/AboutSkeleton';
 import Error from '../../../components/reusable/error/Error';
 import { StyledH2 } from '../../../styles/reusable/typography';
-import { respondTo } from '../../../styles/helpers';
 import { useSinglePropertie } from '../../../api/useSinglePropertie';
+import { StyledSection } from './styles';
 
 const About = () => {
   const { isLoading, error, singlePropertie } = useSinglePropertie();
+  const currentWidth = window.innerWidth;
+  const animationControls = {
+    title: useAnimation(),
+    textOne: useAnimation(),
+    textTwo: useAnimation(),
+  };
+
+  const animateAbout = async () => {
+    await Promise.all([
+      animationControls.title.start({
+        y: 0,
+        transition: {
+          duration: 0.7,
+          ease: 'easeOut',
+          type: 'tween',
+        },
+      }),
+
+      animationControls.textOne.start({
+        y: 0,
+        transition: {
+          duration: 0.8,
+          ease: 'easeOut',
+          type: 'tween',
+        },
+      }),
+
+      animationControls.textTwo.start({
+        y: 0,
+        transition: {
+          duration: 0.8,
+          ease: 'easeOut',
+          type: 'tween',
+        },
+      }),
+    ]);
+  };
 
   if (isLoading) {
-    return (
-      <StyledSection className='wrapper flow-spacing-content rm-spacing-xl'>
-        <div className='max-width-250'>
-          <PlaceholderLoading shape='rect' width='100%' height='40' />
-        </div>
-
-        <div className='flow-spacing-content'>
-          <PlaceholderLoading shape='rect' width='100%' height='300' />
-          <PlaceholderLoading shape='rect' width='100%' height='300' />
-        </div>
-      </StyledSection>
-    );
+    return <AboutSkeleton />;
   }
 
   if (error) {
@@ -34,25 +59,43 @@ const About = () => {
 
   return (
     <StyledSection className='wrapper flow-spacing-content rm-spacing-xl'>
-      <StyledH2>Sobre la propiedad</StyledH2>
+      <motion.div initial={{ overflow: 'hidden', alignSelf: 'start' }}>
+        <StyledH2 initial={{ display: 'inline-block', y: -60 }} animate={animationControls.title}>
+          Sobre la propiedad
+        </StyledH2>
+      </motion.div>
 
-      <div className='flow-spacing-content'>
-        {singlePropertie[0].information.map(text => (
-          <p key={uuidv4()} className='max-width-700'>
-            {text}
-          </p>
-        ))}
-      </div>
+      <motion.div className='flow-spacing-content'>
+        <motion.div
+          initial={{ overflow: 'hidden' }}
+          whileInView={currentWidth < 1024 ? animateAbout : null}
+          viewport={{ once: 'true' }}
+        >
+          <motion.p
+            initial={{ y: 600 }}
+            animate={animationControls.textOne}
+            className='max-width-700'
+          >
+            {singlePropertie[0].information[0]}
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial={{ overflow: 'hidden' }}
+          whileInView={currentWidth >= 1024 ? animateAbout : null}
+          viewport={{ once: 'true' }}
+        >
+          <motion.p
+            initial={{ y: 600 }}
+            animate={animationControls.textTwo}
+            className='max-width-700'
+          >
+            {singlePropertie[0].information[1]}
+          </motion.p>
+        </motion.div>
+      </motion.div>
     </StyledSection>
   );
 };
-
-// Styles
-const StyledSection = styled.section`
-  ${respondTo.xl`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  `}
-`;
 
 export default About;

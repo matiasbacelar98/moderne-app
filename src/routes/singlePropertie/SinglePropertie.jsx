@@ -19,9 +19,7 @@ const SinglePropertie = () => {
 
           <About />
 
-          <section>
-            <Navigation boxOneValues={propertiesBox} boxTwoValues={aboutBox} />
-          </section>
+          <Navigation boxOneValues={propertiesBox} boxTwoValues={aboutBox} />
         </main>
       </Layout>
     </>
