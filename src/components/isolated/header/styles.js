@@ -34,9 +34,14 @@ const StyledWrapper = styled.div`
   .properties-link {
     display: none;
     font-size: var(--fs-text-large);
+    transition: transform 0.2s ease-out;
 
     &:hover {
       cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.9);
     }
   }
 
