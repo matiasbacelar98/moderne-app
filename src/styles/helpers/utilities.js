@@ -65,14 +65,6 @@ export const utilityClasses = css`
     }
   }
 
-  .active-link {
-    color: var(--clr-blue);
-  }
-
-  .underline {
-    text-decoration: underline;
-  }
-
   //--------- Layout ---------//
   .wrapper {
     width: 90%;
@@ -91,6 +83,14 @@ export const utilityClasses = css`
 
   .boxShadow {
     box-shadow: 0px 10px 10px -15px var(--clr-dark);
+  }
+
+  .underline {
+    border-bottom: 1px solid var(--clr-dark);
+  }
+
+  .active-link {
+    color: var(--clr-blue);
   }
 
   .moveElementForward-10 {
