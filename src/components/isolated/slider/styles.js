@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled(motion.div)`
   display: none;
 
   @media (min-width: 87.5em /* 1400px */) {
