@@ -46,6 +46,10 @@ export const utilityClasses = css`
     max-width: 31.25rem; // 500px
   }
 
+  .max-width-250 {
+    max-width: 15.625rem; // 250px
+  }
+
   .max-width-700 {
     max-width: 43.75rem; // 700px
   }

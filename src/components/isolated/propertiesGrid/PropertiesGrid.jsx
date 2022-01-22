@@ -1,8 +1,8 @@
+import Error from '../../reusable/error/Error';
 import Card from './card/Card';
 import GridSkeleton from './gridSkeleton/GridSkeleton';
 import { usePropertiesData } from '../../../api/usePropertiesData';
-import { StyledGrid, StyledErrorWrapper } from './styles';
-import { StyledH2 } from '../../../styles/reusable/typography';
+import { StyledGrid } from './styles';
 
 const PropertiesGrid = () => {
   const { isLoading, error, propertiesData } = usePropertiesData();
@@ -13,11 +13,9 @@ const PropertiesGrid = () => {
 
   if (error) {
     return (
-      <StyledErrorWrapper className='wrapper'>
-        <StyledH2 className='max-width-700'>
-          Ha ocurrido un error , por favor recargue la pagina
-        </StyledH2>
-      </StyledErrorWrapper>
+      <section>
+        <Error />
+      </section>
     );
   }
 

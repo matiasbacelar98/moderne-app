@@ -13,9 +13,7 @@ const About = () => {
         <main>
           <Content />
 
-          <section>
-            <Navigation boxOneValues={homeBox} boxTwoValues={propertiesBox} />
-          </section>
+          <Navigation boxOneValues={homeBox} boxTwoValues={propertiesBox} />
         </main>
       </Layout>
     </>

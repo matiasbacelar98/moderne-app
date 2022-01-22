@@ -84,7 +84,7 @@ Card.propTypes = {
     rooms: PropTypes.number,
     status: PropTypes.string,
     img: PropTypes.string,
-    information: PropTypes.string,
+    information: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   index: PropTypes.number.isRequired,
 };
