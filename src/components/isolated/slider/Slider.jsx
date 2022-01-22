@@ -4,6 +4,7 @@ import PlaceholderLoading from 'react-placeholder-loading';
 import arrowSvg from '../../../assets/images/arrow-down-icon.svg';
 import { useInterval } from '../../../hooks/useInterval';
 import { usePropertiesImages } from '../../../api/usePropertiesImages';
+import { useEntranceContext } from '../../../context/entranceContext';
 import {
   StyledWrapper,
   StyledLinkImg,
@@ -19,6 +20,7 @@ const Slider = () => {
   const [currentImg, setCurrentImg] = useState(0);
   const [currentPath, setCurrentPath] = useState(1);
   const { isLoading, propertiesImages } = usePropertiesImages();
+  const { isEntranceActive } = useEntranceContext();
   const arrowControls = useAnimation();
   const dots = [0, 1, 2, 3, 4];
 
@@ -54,7 +56,19 @@ const Slider = () => {
   };
 
   return (
-    <StyledWrapper>
+    <StyledWrapper
+      initial={{ y: -60, opacity: 0 }}
+      animate={{
+        y: 0,
+        opacity: 1,
+        transition: {
+          delay: isEntranceActive ? 5.6 : 1.5,
+          type: 'tween',
+          ease: 'easeOut',
+          duration: 0.6,
+        },
+      }}
+    >
       <StyledDotsWrapper>
         {dots.map((dot, index) => (
           <motion.button
