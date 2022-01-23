@@ -30,7 +30,7 @@ const Footer = ({ spacing }) => {
 
         <StyledContent gridArea='direction'>
           <StyledH3 regular>Direccion</StyledH3>
-          <p>Peña 2085, C1126 ABA, Buenos Aires</p>
+          <p>Peña 2085, C1126 CABA, Buenos Aires</p>
         </StyledContent>
 
         <StyledFlexWrapper gridArea='copyright'>
