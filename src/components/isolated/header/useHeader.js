@@ -165,7 +165,6 @@ export const useHeader = light => {
     isMenuOpen,
     isTextWhite,
     currentWindowWidth,
-    pathname,
     renderPathName,
     setIsMenuOpen,
     headerControls,

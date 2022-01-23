@@ -23,7 +23,6 @@ const Header = ({ light }) => {
     isMenuOpen,
     isTextWhite,
     currentWindowWidth,
-    pathname,
     renderPathName,
     setIsMenuOpen,
     headerControls,
@@ -112,8 +111,8 @@ const Header = ({ light }) => {
         </StyledScrollButton>
       </StyledWrapper>
 
-      {/* Background - Only on Home route */}
-      {pathname === '/' ? <StyledBg initial={{ y: '-100%' }} animate={bgControls} /> : null}
+      {/* Animation Background  */}
+      <StyledBg initial={{ y: '-100%' }} animate={bgControls} />
 
       {/* Mobile Menu */}
       <AnimatePresence onExitComplete={addScrollbar}>
