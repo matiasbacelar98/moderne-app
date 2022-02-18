@@ -77,4 +77,4 @@ Construye la aplicacion en modo produccion , va a generar una carpeta bajo el no
 
 ## Contacto
 
-Creado por [@matiasbacelar](https://github.com/matiasbacelar98)
+Creado y diseñado por [@matiasbacelar](https://github.com/matiasbacelar98)
