@@ -1,32 +1,32 @@
 # Moderne
 
-> Moderne es una aplicacion para una empresa ficticia de construccion de propiedades de alta tecnologia
+> Moderne is an app for a fictitious high-tech property construction company.
 
 ## Scripts
 
-En el directorio del proyecto, puede ejecutar:
+In the project directory, you can run:
 
 
 ### `npm run dev`
 
-Para ejecutar la aplicacion en modo desarrollo.\
-Abrir [http://localhost:3000](http://localhost:3000) para ver la aplicacion en el navegador.
+To run the application in development mode.\
+Open [http://localhost:3000](http://localhost:3000) to see the application in the browser.
 
-La pagina se va a recargar cuando ocurran cambios.\
-Tambien se van a mostrar errores en la consola.
+The page will reload when changes occur.\
+Errors will also be displayed on the console.
 
 
 ### `npm run build`
 
-Construye la aplicacion en modo produccion , va a generar una carpeta bajo el nombre de `dist`.
+Build the application in production mode, it will create a folder named `dist`.
 
 </br>
 
-## Tabla de contenidos
+## Contents
 
 - [Screenshots](#screenshots)
-- [Tecnologias](#tecnologias)
-- [Contacto](#contacto)
+- [Technologies](#technologies)
+- [Contact](#contact)
 
 </br>
 
@@ -61,7 +61,7 @@ Construye la aplicacion en modo produccion , va a generar una carpeta bajo el no
 
 </br>
 
-## Tecnologias
+## Technologies
 
 - Vite JS
 - React JS
@@ -75,6 +75,7 @@ Construye la aplicacion en modo produccion , va a generar una carpeta bajo el no
 
 </br>
 
-## Contacto
+## Contact
 
-Creado y diseñado por [@matiasbacelar](https://github.com/matiasbacelar98)
+Created and designed by [@matiasbacelar](https://github.com/matiasbacelar98)
+
