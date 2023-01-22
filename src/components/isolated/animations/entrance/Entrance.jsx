@@ -74,7 +74,7 @@ const Entrance = () => {
 
 // Styles
 const StyledSvg = styled(motion.svg)`
-  width: 250px; // 450px;
+  width: 15.625rem; // 450px;
   position: relative;
   z-index: 50;
 
