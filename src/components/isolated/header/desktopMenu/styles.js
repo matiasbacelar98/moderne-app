@@ -51,7 +51,7 @@ const StyledUl = styled.ul`
 const StyledLi = styled.li`
   display: flex;
   align-items: center;
-  width: min-content;
+  width: max-content;
 
   &:hover {
     cursor: pointer;

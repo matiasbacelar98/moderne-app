@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 
 async function fetchPropertiesData() {
-  const response = await fetch('https://moderne-api.herokuapp.com/properties');
+  const response = await fetch('https://moderne-api.onrender.com/api/properties');
   return response.json();
 }
 

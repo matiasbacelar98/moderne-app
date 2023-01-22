@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 
 async function fetchPropertiesImages() {
-  const response = await fetch('https://moderne-api.herokuapp.com/properties/images');
+  const response = await fetch('https://moderne-api.onrender.com/api/properties/images');
   return response.json();
 }
 

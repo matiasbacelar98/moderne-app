@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
 async function fetchSinglePropertie(id) {
-  const response = await fetch(`https://moderne-api.herokuapp.com/properties/${id}`);
+  const response = await fetch(`https://moderne-api.onrender.com/api/properties/${id}`);
   return response.json();
 }
 
